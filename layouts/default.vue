@@ -58,19 +58,14 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        },
-        { 
-          icon: '',
-          title: 'my-page',
-          to: '/my-page'
+          icon: 'mdi-account-tie',
+          title: 'Users',
+          to: '/users'
         },
         {
           icon: 'mdi-account-tie',
-          title: 'users',
-          to: '/users'
+          title: 'Singin Up',
+          to: '/SinginUp'
         }
       ],
       miniVariant: false,

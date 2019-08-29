@@ -1,10 +1,47 @@
 export const state = () => ({
-  users: []
+  users: [
+		{
+			"uid": 1,
+			"firstname": "Leanne",
+			"lastname": "Graham",
+			"email": "Sincere@april.biz",
+			"phone": "1-770-736-8031 x56442",
+			"objects": "6",
+			"soldObject": "3",
+			"lastlogin": "Date",
+			"sessions": [
+				{"id": "1", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "2", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "3", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "4", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "5", "timeLogin": "Date", "timeLogout": "Date"}],
+			"isAdmin": "false",
+			"photo": "https://via.placeholder.com/150/24f355"
+		},
+		{
+			"uid": 1,
+			"firstname": "Leanne",
+			"lastname": "Graham",
+			"email": "Sincere@april.biz",
+			"phone": "1-770-736-8031 x56442",
+			"objects": "6",
+			"soldObject": "3",
+			"lastlogin": "Date",
+			"sessions": [
+				{"id": "1", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "2", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "3", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "4", "timeLogin": "Date", "timeLogout": "Date"},
+				{"id": "5", "timeLogin": "Date", "timeLogout": "Date"}],
+			"isAdmin": "false",
+			"photo": "https://via.placeholder.com/150/24f355"
+		},
+	]
 })
 
 export const mutations = {
-  setUsers(state, users) {
-    state.users = users
+  addUser(state, user) {
+    state.users.push(user);
   }
 }
 
@@ -16,5 +53,5 @@ export const actions = {
 }
 
 export const getters = {
-  users: s => s.users
+  users: state => state.users
 }
