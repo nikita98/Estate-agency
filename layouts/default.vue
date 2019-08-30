@@ -54,18 +54,23 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Стартовая страница',
           to: '/'
         },
         {
           icon: 'mdi-account-tie',
-          title: 'Users',
-          to: '/users'
+          title: 'Работники',
+          to: '/users/users'
         },
         {
           icon: 'mdi-account-tie',
-          title: 'Singin Up',
+          title: 'Регистрация',
           to: '/SinginUp'
+        },
+        {
+          icon: 'mdi-account-tie',
+          title: 'Вход',
+          to: '/SinginIn'
         }
       ],
       miniVariant: false,

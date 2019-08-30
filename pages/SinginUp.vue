@@ -18,6 +18,7 @@
                 label="Телефон"
                 required
               ></v-text-field>
+              <v-text-field v-model="password" :rules="passwordRules" label="Пароль" type="password" required></v-text-field>
               <v-checkbox v-model="isAdmin" label="Вы админ, да?" required></v-checkbox>
               <v-btn :disabled="!valid" color="success" type="submit">Зарегестрироваться</v-btn>
             </v-form>
@@ -42,8 +43,8 @@ export default {
     firstname: "",
     lastname: "",
     nameRules: [
-      v => !!v || "Введите имя"
-      // v => (v && v.length >= 3) || 'Имя слишком короткое',
+      v => !!v || "Введите имя",
+      v => (v && v.length >= 3) || 'Имя слишком короткое',
     ],
     email: "",
     emailRules: [
@@ -52,10 +53,14 @@ export default {
     ],
     phone: "+7 (",
     phoneRules: [
-      v => !!v || "Введите телефон"
-      // v => (v && v.length >= 18) || "Введите номер полностью"
-    ],
-    isAdmin: false
+      v => !!v || "Введите телефон",
+      v => (v && v.length >= 18) || "Введите номер полностью"
+		],
+		password: '',
+		passwordRules: [
+      v => !!v || "Введите пароль",
+      v => (v && v.length >= 8) || "Пароль слишком короткий"
+		],    isAdmin: false
   }),
 
   methods: {
@@ -68,15 +73,14 @@ export default {
           lastname: this.lastname,
           email: this.email,
 					phone: this.phone,
+					password: this.password,
 					isAdmin: this.isAdmin
         });
 			}
-			console.log(this.$store["users/users"]);
 			console.log(this.$store.getters["users/users"]);
     }
   }
 };
 </script>>
-
 <style>
 </style>

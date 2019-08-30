@@ -7,7 +7,7 @@
           <v-img :src="user.avatar"></v-img>
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title v-html="user.name"></v-list-item-title>
+          <v-list-item-title v-html="user.firstname"></v-list-item-title>
           <v-list-item-subtitle class v-html="user.lastlogin"></v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     openUser(user) {
-      this.$router.push("/users/" + user.id);
+      this.$router.push("/users/" + user.uid);
     }
   }
 };
