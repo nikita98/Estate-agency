@@ -16,19 +16,21 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  async fetch({ store }) {
-    if (store.getters["users/users"].length === 0) {
-      await store.dispatch("users/fetch");
+	middleware: ['auth'],
+  fetch({ store }) {
+    if (store.getters["users/getUsers"].length === 0) {
+      store.dispatch("users/fetch");
     }
   },
   computed: {
-    users() {
-      return this.$store.getters["users/users"];
-    }
+    ...mapGetters({ users: "users/getUsers" })
   },
   methods: {
     openUser(user) {
+			console.log(user.uid);
       this.$router.push("/users/" + user.uid);
     }
   }

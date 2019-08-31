@@ -6,6 +6,7 @@
           <v-toolbar>
             <v-toolbar-title>Вход</v-toolbar-title>
           </v-toolbar>
+          <v-alert v-if="error" type="error">Неправильный лигин или пароль</v-alert>
           <v-card-text>
             <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="onSubmit">
               <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
@@ -13,6 +14,8 @@
               <v-btn :disabled="!valid" color="success" type="submit">Войти</v-btn>
             </v-form>
           </v-card-text>
+          <br />
+					<v-card-text class="title"><nuxt-link to="/SinginUp" >Регистрация</nuxt-link></v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -22,12 +25,16 @@
 
 <script>
 import { mask } from "vue-the-mask";
+import { mapGetters, mapActions } from "vuex";
+import { async } from "q";
 
 export default {
   directives: {
     mask
   },
   data: () => ({
+    error: "",
+    userNow: "",
     mask: "+7 (###) ### ## ##",
     valid: true,
     email: "",
@@ -41,22 +48,28 @@ export default {
       v => (v && v.length >= 8) || "Пароль слишком короткий"
     ]
   }),
-
+  computed: mapGetters({ users: "users/getUsers" }),
   methods: {
+    ...mapActions({ login: "auth/login" }),
     onSubmit() {
       if (this.$refs.form.validate()) {
-        console.log("123");
-        this.$store.commit("users/addUser", {
-          uid: 1,
-          firstname: this.firstname,
-          lastname: this.lastname,
-          email: this.email,
-          phone: this.phone,
-          isAdmin: this.isAdmin
+        let email = this.email,
+          password = this.password;
+
+        this.userNow = this.users.filter(function(user) {
+          if (user.email === email && user.password === password) {
+            return user;
+          }
         });
+
+        if (this.userNow.length) {
+          let userNow = this.userNow;
+          this.login(userNow);
+          this.$router.push("/");
+        } else {
+          this.error = true;
+        }
       }
-      console.log(this.$store["users/users"]);
-      console.log(this.$store.getters["users/users"]);
     }
   }
 };

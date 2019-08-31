@@ -23,6 +23,7 @@
               <v-btn :disabled="!valid" color="success" type="submit">Зарегестрироваться</v-btn>
             </v-form>
           </v-card-text>
+					<v-card-text class="title"><nuxt-link to="/SinginIn" >Вход</nuxt-link></v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -75,9 +76,9 @@ export default {
 					phone: this.phone,
 					password: this.password,
 					isAdmin: this.isAdmin
-        });
+				});
+				this.$router.push('/SinginIn')
 			}
-			console.log(this.$store.getters["users/users"]);
     }
   }
 };

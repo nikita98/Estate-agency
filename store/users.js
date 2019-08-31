@@ -5,6 +5,7 @@ export const state = () => ({
 			"firstname": "Leanne",
 			"lastname": "Graham",
 			"email": "Sincere@april.biz",
+			"password": "Sincere@april.biz",
 			"phone": "1-770-736-8031 x56442",
 			"objects": "6",
 			"soldObject": "3",
@@ -22,10 +23,11 @@ export const state = () => ({
 			"uid": 1,
 			"firstname": "Boy",
 			"lastname": "Next",
-			"email": "Sincere@april.biz",
+			"email": "abs@ap.biz",
+			"password": "abs@ap.biz",
 			"phone": "1-770-736-8031 x56442",
-			"objects": "6",
-			"soldObject": "3",
+			"objects": "2",
+			"soldObject": "1",
 			"lastlogin": "Date",
 			"sessions": [
 				{"id": "1", "timeLogin": "Date", "timeLogout": "Date"},
@@ -45,13 +47,17 @@ export const mutations = {
   }
 }
 
-// export const actions = {
-//   async fetch({commit}) {
-//     const users = await this.$axios.$get('https://jsonplaceholder.typicode.com/users')
-//     commit('setUsers', users)
-//   }
-// }
+export const actions = {
+	// getUser(cxt, uid){
+	// 	cxt.user(state, uid)
+	// }
+  // async fetch({commit}) {
+  //   const users = await this.$axios.$get('https://jsonplaceholder.typicode.com/users')
+  //   commit('setUsers', users)
+  // }
+}
 
 export const getters = {
-  users: state => state.users
+	getUsers: state => state.users,
+	getUser: (state, uid = 0) => state.users[uid]
 }

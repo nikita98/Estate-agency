@@ -1,28 +1,25 @@
 export const state = () => ({
-  user: null
+  userNow: null
 })
 
 export const mutations = {
-  setUser(state, token) {
-    state.token = token
+  setUserNow(state, user) {
+    state.userNow = user
   },
-  clearToken(state) {
-    state.token = null
+  clearUserNow(state) {
+    state.userNow = null
   }
 }
 
 export const actions = {
-  nuxtServerInit({dispatch}) {
-    console.log('nuxtServerInit')
-  },
-  login({commit}) {
-    commit('setToken', 'truetoken')
+  login({commit, user}) {
+    commit('setUserNow', user)
   },
   logout({commit}) {
-    commit('clearToken')
+    commit('clearUserNow')
   },
 }
 
 export const getters = {
-  hasToken: s => !!s.token
+  getUserNow: state => state.userNow
 }
