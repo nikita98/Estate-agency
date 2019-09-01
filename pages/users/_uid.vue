@@ -13,7 +13,7 @@
         <div>Телефон: {{user.phone}}</div>
         <div>Всего объектов: {{user.objects}}</div>
         <div>Продано объектов : {{user.soldObject}}</div>
-        <div>Был онлайн: {{user.lastlogin}}</div>
+        <div>Был онлайн: {{timeNow}}</div>
       </v-card-text>
     </v-card>
     <hr />
@@ -22,9 +22,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-
+import { moment } from "moment";
 export default {
-	middleware: ['auth'],
 	computed: {
 		...mapGetters({users: "users/getUsers"}),
 		user() {
@@ -32,6 +31,10 @@ export default {
     },
 		par() {
       return this.$route.params.uid;
+		},
+		timeNow() {
+			// console.log(moment());
+			return  123;
 		}
 	}
 }

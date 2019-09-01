@@ -61,9 +61,9 @@ export default {
             return user;
           }
         });
-
         if (this.userNow.length) {
-          let userNow = this.userNow;
+					let userNow = this.userNow;
+					console.log(userNow);
           this.login(userNow);
           this.$router.push("/");
         } else {
