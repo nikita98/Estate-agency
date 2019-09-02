@@ -114,12 +114,12 @@ export const getters = {
     return state.users.find(user => user.uid === id);
 	},
 	
-	// getUserOnline: (state, getters, mutations, id) => {
+	// getUserOnline: (state, getters, id) => {
 	// 	return getters.getUserById(id);
-	// 	user => {
-  //   	return user.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))[0].timeLogout
-	// 	}
-	// }
+		// user => {
+    // 	return user.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))[0].timeLogout
+		// }
+	// },
 	// getUserOnline: (store, user) => 
 	// 	user.sessions.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))[0].timeLogout
 }
