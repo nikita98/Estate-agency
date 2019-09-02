@@ -27,7 +27,7 @@ export const state = () => ({
 			"objects": "2",
 			"soldObject": "1",
 			"sessions": [
-				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567417235910"},
+				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567441276437"},
 				{"id": "2", "timeLogin": "1567400235910", "timeLogout": "1567427235910"},
 				{"id": "3", "timeLogin": "1567410535910", "timeLogout": "1567417935910"}
 			],
@@ -61,9 +61,9 @@ export const state = () => ({
 			"objects": "2",
 			"soldObject": "1",
 			"sessions": [
-				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567417235910"},
+				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567441276437"},
 				{"id": "2", "timeLogin": "1567400235910", "timeLogout": "1567427235910"},
-				{"id": "3", "timeLogin": "1567410535910", "timeLogout": "1567417935910"}
+				{"id": "3", "timeLogin": "1567441276437", "timeLogout": "1567441276437"}
 			],
 			"isAdmin": "",
 			"photo": "https://via.placeholder.com/150/24f355"
@@ -91,7 +91,10 @@ export const state = () => ({
 export const mutations = {
   addUser(state, user) {
     state.users.push(user);
-  }
+	},
+	sortName( state ) {
+		state.users.sort((a, b) => (a.lastname > b.lastname ? 1 : -1))
+	}
 }
 
 export const actions = {
@@ -109,5 +112,14 @@ export const getters = {
 	getUser: (state, uid = 0) => state.users[uid],
 	getUserById: state => id => {
     return state.users.find(user => user.uid === id);
-  }
+	},
+	
+	// getUserOnline: (state, getters, mutations, id) => {
+	// 	return getters.getUserById(id);
+	// 	user => {
+  //   	return user.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))[0].timeLogout
+	// 	}
+	// }
+	// getUserOnline: (store, user) => 
+	// 	user.sessions.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))[0].timeLogout
 }
