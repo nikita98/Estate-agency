@@ -14,6 +14,8 @@
         <div>Всего объектов: {{user.objects}}</div>
         <div>Продано объектов : {{user.soldObject}}</div>
         <div>Был онлайн: {{timeNow}}</div>
+				<div>{{time2}}</div>
+				<div>{{userid2}}</div>
       </v-card-text>
     </v-card>
     <hr />
@@ -21,21 +23,28 @@
 </template>
 
 <script>
+
+import moment from 'moment';
+
 import { mapGetters } from "vuex";
-import { moment } from "moment";
 export default {
-	computed: {
-		...mapGetters({users: "users/getUsers"}),
-		user() {
+  computed: {
+    ...mapGetters({ users: "users/getUsers",  userId: "users/getUserById" }),
+    user() {
       return this.users[this.$route.params.uid];
     },
-		par() {
+    par() {
       return this.$route.params.uid;
+    },
+    timeNow() {
+      return this.$moment(1566500009000).fromNow();
 		},
-		timeNow() {
-			// console.log(moment());
-			return  123;
+		time2() {
+			return new Date().getTime();
+		},
+		userid2() {
+			return this.userId(0);
 		}
-	}
-}
+  }
+};
 </script>

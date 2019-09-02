@@ -9,14 +9,12 @@ export const state = () => ({
 			"phone": "1-770-736-8031 x56442",
 			"objects": "6",
 			"soldObject": "3",
-			"lastlogin": "Date",
 			"sessions": [
-				{"id": "1", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "2", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "3", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "4", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "5", "timeLogin": "Date", "timeLogout": "Date"}],
-			"isAdmin": "false",
+				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567417235910"},
+				{"id": "2", "timeLogin": "1567400235910", "timeLogout": "1567427235910"},
+				{"id": "3", "timeLogin": "1567410535910", "timeLogout": "1567417935910"}
+			],
+			"isAdmin": "true",
 			"photo": "https://via.placeholder.com/150/24f355"
 		},
 		{
@@ -28,14 +26,63 @@ export const state = () => ({
 			"phone": "1-770-736-8031 x56442",
 			"objects": "2",
 			"soldObject": "1",
-			"lastlogin": "Date",
 			"sessions": [
-				{"id": "1", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "2", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "3", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "4", "timeLogin": "Date", "timeLogout": "Date"},
-				{"id": "5", "timeLogin": "Date", "timeLogout": "Date"}],
-			"isAdmin": "false",
+				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567417235910"},
+				{"id": "2", "timeLogin": "1567400235910", "timeLogout": "1567427235910"},
+				{"id": "3", "timeLogin": "1567410535910", "timeLogout": "1567417935910"}
+			],
+			"isAdmin": "",
+			"photo": "https://via.placeholder.com/150/24f355"
+		},
+		{
+			"uid": 2,
+			"firstname": "Жора",
+			"lastname": "Жованный",
+			"email": "abs@ap.biz",
+			"password": "abs@ap.biz",
+			"phone": "1-770-736-8031 x56442",
+			"objects": "2",
+			"soldObject": "1",
+			"sessions": [
+				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567417235910"},
+				{"id": "2", "timeLogin": "1567400235910", "timeLogout": "1567427235910"},
+				{"id": "3", "timeLogin": "1567410535910", "timeLogout": "1567417935910"}
+			],
+			"isAdmin": "",
+			"photo": "https://via.placeholder.com/150/24f355"
+		},
+		{
+			"uid": 3,
+			"firstname": "Алексей",
+			"lastname": "Крылов",
+			"email": "lexa@ap.ru",
+			"password": "lexxa777",
+			"phone": "812889214891248",
+			"objects": "2",
+			"soldObject": "1",
+			"sessions": [
+				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567417235910"},
+				{"id": "2", "timeLogin": "1567400235910", "timeLogout": "1567427235910"},
+				{"id": "3", "timeLogin": "1567410535910", "timeLogout": "1567417935910"}
+			],
+			"isAdmin": "",
+			"photo": "https://via.placeholder.com/150/24f355"
+		},
+		{
+			"uid": 4,
+			"firstname": "Vova",
+			"lastname": "Lopata",
+			"email": "abs@ap.biz",
+			"password": "abs@ap.biz",
+			"phone": "1-770-736-8031 x56442",
+			"objects": "2",
+			"soldObject": "1",
+			"sessions": [
+				{"id": "1", "timeLogin": "1567410235910", "timeLogout": "1567417235910"},
+				{"id": "2", "timeLogin": "1567400235910", "timeLogout": "1567427235910"},
+				{"id": "3", "timeLogin": "1567410535910", "timeLogout": "1567417935910"}
+			],
+			"isAdmin": "",
 			"photo": "https://via.placeholder.com/150/24f355"
 		},
 	]
@@ -59,5 +106,8 @@ export const actions = {
 
 export const getters = {
 	getUsers: state => state.users,
-	getUser: (state, uid = 0) => state.users[uid]
+	getUser: (state, uid = 0) => state.users[uid],
+	getUserById: state => id => {
+    return state.users.find(user => user.uid === id);
+  }
 }

@@ -12,8 +12,7 @@ export const mutations = {
 }
 
 export const actions = {
-  login({commit, user}) {
-		console.log(user);// почему-то тут undefined
+  login({commit}, user) {
     commit('setUserNow', user)
   },
   logout({commit}) {

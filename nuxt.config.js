@@ -37,7 +37,8 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+		'@nuxtjs/vuetify',
+		'@nuxtjs/moment'
   ],
   /*
   ** Nuxt.js modules
@@ -51,6 +52,10 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+	},
+	moment: {
+    // locales: ['fa']
+    locales: ['ru']
   },
   /*
   ** vuetify module configuration
