@@ -7,6 +7,15 @@
         <v-btn small color="primary" @click="sortName()">
           По фамилии
         </v-btn>
+        <v-btn small color="primary" @click="sortOnline()">
+          Онлайн
+        </v-btn>
+        <v-btn small color="primary" @click="sortObject()">
+          Объектов всего
+        </v-btn>
+        <v-btn small color="primary" @click="sortSoldObject()">
+          Объектов продано
+        </v-btn>
       </v-list-item>
       <v-list-item v-for="(user, i) in users" :key="i" @click="openUser(user)">
         <v-list-item-avatar>
@@ -38,7 +47,12 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({ sortName: 'users/sortName' }),
+    ...mapMutations({
+      sortName: 'users/sortName',
+      sortOnline: 'users/sortOnline',
+      sortObject: 'users/sortObject',
+      sortSoldObject: 'users/sortSoldObject'
+    }),
     openUser (user) {
       this.$router.push('/users/' + user.uid)
     },

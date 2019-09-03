@@ -100,6 +100,15 @@ export const mutations = {
   sortName (state) {
     state.users.sort((a, b) => (a.lastname > b.lastname ? 1 : -1))
   },
+  sortOnline (state) {
+    state.users.sort((a, b) => (a.lastlogin > b.lastlogin ? 1 : -1))
+  },
+  sortObject (state) {
+    state.users.sort((a, b) => (a.objects > b.objects ? 1 : -1))
+  },
+  sortSoldObject (state) {
+    state.users.sort((a, b) => (a.soldObject > b.soldObject ? 1 : -1))
+  },
   sortSessions (state, getters, id) {
     return getters.getUserById(id).sessions.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))
   }
