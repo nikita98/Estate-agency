@@ -4,17 +4,17 @@
 
     <v-list-item-group color="primary">
       <v-list-item>
-        <v-btn @click="sortName()" flat small color="primary">По фамилии</v-btn>
-        <v-btn flat small color="primary">Объектов Всего</v-btn>
-        <v-btn flat small color="primary">Объектов Сдано</v-btn>
+        <v-btn small color="primary" @click="sortName()">
+          По фамилии
+        </v-btn>
       </v-list-item>
       <v-list-item v-for="(user, i) in users" :key="i" @click="openUser(user)">
         <v-list-item-avatar>
-          <v-img :src="user.photo	"></v-img>
+          <v-img :src="user.photo" />
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title>{{user.firstname}} {{user.lastname}}</v-list-item-title>
-          <v-list-item-subtitle>{{logoutTime(user.sessions[0].timeLogout)}}</v-list-item-subtitle>
+          <v-list-item-title>{{ user.firstname }} {{ user.lastname }}</v-list-item-title>
+          <v-list-item-subtitle>{{ timeFromNow(user.lastlogin) }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </v-list-item-group>
@@ -22,33 +22,29 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
-import moment from "moment";
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-  middleware: ["auth"],
-  fetch({ store }) {
-    if (store.getters["users/getUsers"].length === 0) {
-      store.dispatch("users/fetch");
-    }
-  },
+  middleware: ['auth'],
   computed: {
     ...mapGetters({
-      users: "users/getUsers",
-      userOnline: "users/getUserOnline"
+      users: 'users/getUsers',
+      userOnline: 'users/getUserOnline'
     })
   },
+  fetch ({ store }) {
+    if (store.getters['users/getUsers'].length === 0) {
+      store.dispatch('users/fetch')
+    }
+  },
   methods: {
-		...mapMutations({ sortName: "users/sortName" }),
-    openUser(user) {
-      console.log(user.uid);
-      this.$router.push("/users/" + user.uid);
+    ...mapMutations({ sortName: 'users/sortName' }),
+    openUser (user) {
+      this.$router.push('/users/' + user.uid)
     },
-    logoutTime(time) {
-      return this.$moment(+time).fromNow();
+    timeFromNow (time) {
+      return this.$moment(time).fromNow()
     }
   }
-};
+}
 </script>
-
-

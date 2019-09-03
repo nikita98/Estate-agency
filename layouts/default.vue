@@ -33,7 +33,7 @@
       <v-toolbar-title v-text="title" />
     </v-app-bar>
     <v-content>
-        <nuxt />
+      <nuxt />
     </v-content>
     <v-footer
       :fixed="fixed"

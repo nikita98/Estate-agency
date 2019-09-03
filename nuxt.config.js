@@ -37,8 +37,8 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-		'@nuxtjs/vuetify',
-		'@nuxtjs/moment'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment'
   ],
   /*
   ** Nuxt.js modules
@@ -52,9 +52,8 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-	},
-	moment: {
-    // locales: ['fa']
+  },
+  moment: {
     locales: ['ru']
   },
   /*
@@ -86,6 +85,14 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
     }
   }
 }

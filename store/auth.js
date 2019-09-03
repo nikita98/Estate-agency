@@ -3,21 +3,21 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setUserNow(state, user) {
+  setUserNow (state, user) {
     state.userNow = user
   },
-  clearUserNow(state) {
+  clearUserNow (state) {
     state.userNow = null
   }
 }
 
 export const actions = {
-  login({commit}, user) {
+  login ({ commit }, user) {
     commit('setUserNow', user)
   },
-  logout({commit}) {
+  logout ({ commit }) {
     commit('clearUserNow')
-  },
+  }
 }
 
 export const getters = {
