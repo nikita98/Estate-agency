@@ -1,7 +1,7 @@
 export const state = () => ({
   users: [
     {
-      'uid': 0,
+      'uid': '0',
       'firstname': 'Leanne',
       'lastname': 'Graham',
       'email': 'Sincere@april.biz',
@@ -11,15 +11,15 @@ export const state = () => ({
       'soldObject': 3,
       'lastlogin': 1567417235910,
       'sessions': [
-        { 'id': 1, 'timeLogin': 1567410235910, 'timeLogout': 1567417235910 },
-        { 'id': 2, 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
-        { 'id': 3, 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
+        { 'id': '1', 'timeLogin': 1567410235910, 'timeLogout': 1567417235910 },
+        { 'id': '2', 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
+        { 'id': '3', 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
       ],
       'isAdmin': true,
       'photo': 'https://via.placeholder.com/150/24f355'
     },
     {
-      'uid': 1,
+      'uid': '1',
       'firstname': 'Boy',
       'lastname': 'Next',
       'email': 'abs@ap.biz',
@@ -29,15 +29,15 @@ export const state = () => ({
       'soldObject': 1,
       'lastlogin': 1562417035910,
       'sessions': [
-        { 'id': 1, 'timeLogin': 1567410235910, 'timeLogout': 1567441276437 },
-        { 'id': 2, 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
-        { 'id': 3, 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
+        { 'id': '1', 'timeLogin': 1567410235910, 'timeLogout': 1567441276437 },
+        { 'id': '2', 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
+        { 'id': '3', 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
       ],
       'isAdmin': false,
       'photo': 'https://via.placeholder.com/150/24f355'
     },
     {
-      'uid': 2,
+      'uid': '2',
       'firstname': 'Жора',
       'lastname': 'Жованный',
       'email': 'abs@ap.biz',
@@ -47,15 +47,15 @@ export const state = () => ({
       'soldObject': 1,
       'lastlogin': 1560412235910,
       'sessions': [
-        { 'id': 1, 'timeLogin': 1567410235910, 'timeLogout': 1567417235910 },
-        { 'id': 2, 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
-        { 'id': 3, 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
+        { 'id': '1', 'timeLogin': 1567410235910, 'timeLogout': 1567417235910 },
+        { 'id': '2', 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
+        { 'id': '3', 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
       ],
       'isAdmin': false,
       'photo': 'https://via.placeholder.com/150/24f355'
     },
     {
-      'uid': 3,
+      'uid': '3',
       'firstname': 'Алексей',
       'lastname': 'Крылов',
       'email': 'lexa@ap.ru',
@@ -65,15 +65,15 @@ export const state = () => ({
       'soldObject': 1,
       'lastlogin': 1460011005910,
       'sessions': [
-        { 'id': 1, 'timeLogin': 1567410235910, 'timeLogout': 1567441276437 },
-        { 'id': 2, 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
-        { 'id': 3, 'timeLogin': 1567441276437, 'timeLogout': 1567441276437 }
+        { 'id': '1', 'timeLogin': 1567410235910, 'timeLogout': 1567441276437 },
+        { 'id': '2', 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
+        { 'id': '3', 'timeLogin': 1567441276437, 'timeLogout': 1567441276437 }
       ],
       'isAdmin': false,
       'photo': 'https://via.placeholder.com/150/24f355'
     },
     {
-      'uid': 4,
+      'uid': '4',
       'firstname': 'Vova',
       'lastname': 'Lopata',
       'email': 'abs@ap.biz',
@@ -83,9 +83,9 @@ export const state = () => ({
       'soldObject': 1,
       'lastlogin': 1567428299910,
       'sessions': [
-        { 'id': 1, 'timeLogin': 1567410235910, 'timeLogout': 1567417235910 },
-        { 'id': 2, 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
-        { 'id': 3, 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
+        { 'id': '1', 'timeLogin': 1567410235910, 'timeLogout': 1567417235910 },
+        { 'id': '2', 'timeLogin': 1567400235910, 'timeLogout': 1567427235910 },
+        { 'id': '3', 'timeLogin': 1567410535910, 'timeLogout': 1567417935910 }
       ],
       'isAdmin': false,
       'photo': 'https://via.placeholder.com/150/24f355'
