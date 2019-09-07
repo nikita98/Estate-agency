@@ -21,5 +21,5 @@ export const actions = {
 }
 
 export const getters = {
-  getUserNow: state => state.userNow
+  getUserNow: state => state.userNow ? state.userNow : null
 }

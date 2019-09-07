@@ -11,11 +11,33 @@
       </v-card-title>
       <v-card-text>
         <img :src="user.photo" alt="avatar">
-        <div>Email: {{ user.email }}</div>
-        <div>Телефон: {{ user.phone }}</div>
-        <div>Всего объектов: {{ user.objects }}</div>
+        <div>
+          <a
+            :href="'mailto:' + user.email"
+          >
+            Email: {{ user.email }}
+          </a>
+        </div>
+        <div>
+          <a
+            :href="'tel:' + user.phone"
+          >
+            Телефон: {{ user.phone }}
+          </a>
+        </div>
+        <div>
+          <a
+            href="#"
+            @click="openUserObjects(user)"
+          >
+            Всего объектов: {{ user.objects }}
+          </a>
+        </div>
         <div>Продано объектов : {{ user.soldObject }}</div>
         <div>Был онлайн: {{ timeFromNow(user.lastlogin) }}</div>
+        <v-btn v-if="user === userNow">
+          Добавить объект
+        </v-btn>
       </v-card-text>
     </v-card>
     <hr>
@@ -27,9 +49,9 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters({ users: 'users/getUsers', userId: 'users/getUserById' }),
+    ...mapGetters({ users: 'users/getUsers', userId: 'users/getUserById', userNow: 'auth/getUserNow' }),
     user () {
-      return this.users[this.$route.params.uid]
+      return this.userId(this.par)
     },
     par () {
       return this.$route.params.uid
@@ -38,6 +60,9 @@ export default {
   methods: {
     timeFromNow (time) {
       return this.$moment(time).fromNow()
+    },
+    openUserObjects (user) {
+      this.$router.push('/objects/' + user.uid)
     }
   }
 }

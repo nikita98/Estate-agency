@@ -61,15 +61,9 @@ export default {
       if (this.$refs.form.validate()) {
         const email = this.email
         const password = this.password
-
-        this.userNow = this.users.filter(function (user) {
-          if (user.email === email && user.password === password) {
-            return user
-          }
-        })
+        this.userNow = this.users.find(user => user.email === email && user.password === password)
         if (this.userNow.length) {
-          const userNow = this.userNow
-          this.login(userNow)
+          this.login(this.userNow)
           this.$router.push('/')
         } else {
           this.error = true

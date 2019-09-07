@@ -55,7 +55,7 @@ export const state = () => ({
       'photo': 'https://via.placeholder.com/150/24f355'
     },
     {
-      'uid': '3',
+      'uid': 'wrha7q294y',
       'firstname': 'Алексей',
       'lastname': 'Крылов',
       'email': 'lexa@ap.ru',
@@ -73,7 +73,7 @@ export const state = () => ({
       'photo': 'https://via.placeholder.com/150/24f355'
     },
     {
-      'uid': '4',
+      'uid': 'agysdi',
       'firstname': 'Vova',
       'lastname': 'Lopata',
       'email': 'abs@ap.biz',
@@ -101,17 +101,17 @@ export const mutations = {
     state.users.sort((a, b) => (a.lastname > b.lastname ? 1 : -1))
   },
   sortOnline (state) {
-    state.users.sort((a, b) => (a.lastlogin > b.lastlogin ? 1 : -1))
+    state.users.sort((a, b) => (a.lastlogin > b.lastlogin ? -1 : 1))
   },
   sortObject (state) {
     state.users.sort((a, b) => (a.objects > b.objects ? 1 : -1))
   },
   sortSoldObject (state) {
     state.users.sort((a, b) => (a.soldObject > b.soldObject ? 1 : -1))
-  },
-  sortSessions (state, getters, id) {
-    return getters.getUserById(id).sessions.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))
   }
+  // sortSessions (state, getters, id) {
+  //   return getters.getUserById(id).sessions.sort((a, b) => (a.timeLogout > b.timeLogout ? 1 : -1))
+  // }
 }
 
 export const actions = {
@@ -126,8 +126,7 @@ export const actions = {
 
 export const getters = {
   getUsers: state => state.users,
-  getUser: (state, uid = 0) => state.users[uid],
-  getUserById: state => (id) => {
-    return state.users.find(user => user.uid === id)
+  getUserById: state => (uid) => {
+    return state.users.find(user => user.uid === uid)
   }
 }

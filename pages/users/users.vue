@@ -41,11 +41,11 @@ export default {
       userOnline: 'users/getUserOnline'
     })
   },
-  fetch ({ store }) {
-    if (store.getters['users/getUsers'].length === 0) {
-      store.dispatch('users/fetch')
-    }
-  },
+  // fetch ({ store }) {
+  //   if (store.getters['users/getUsers'].length === 0) {
+  //     store.dispatch('users/fetch')
+  //   }
+  // },
   methods: {
     ...mapMutations({
       sortName: 'users/sortName',

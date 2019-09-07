@@ -7,8 +7,9 @@
       fixed
       app
     >
+      <div>{{ userNow }}</div>
       <v-list>
-        <v-list-item
+        <!-- <v-list-item
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
@@ -20,6 +21,46 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item> -->
+        <v-list-item to="/">
+          <v-list-item-action>
+            <v-icon>mdi-apps</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Стартовая страница</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-if="adminCheck" to="/users/users">
+          <v-list-item-action>
+            <v-icon>mdi-account-tie</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Работники</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-if="userNow === null" to="/SinginUp">
+          <v-list-item-action>
+            <v-icon>mdi-account-tie</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Регистрация</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-if="userNow === null" to="/SinginIn">
+          <v-list-item-action>
+            <v-icon>mdi-account-tie</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Вход</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-if="userNow !== null" to="/">
+          <v-list-item-action>
+            <v-icon>mdi-account-tie</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Выход</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -45,6 +86,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data () {
     return {
@@ -52,16 +95,6 @@ export default {
       drawer: false,
       fixed: false,
       items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Стартовая страница',
-          to: '/'
-        },
-        {
-          icon: 'mdi-account-tie',
-          title: 'Работники',
-          to: '/users/users'
-        },
         {
           icon: 'mdi-account-tie',
           title: 'Регистрация',
@@ -77,6 +110,15 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+  computed: {
+    ...mapGetters({ userNow: 'auth/getUserNow' }),
+    adminCheck () {
+      if ((this.userNow) && (this.userNow.isAdmin !== true)) {
+        return true
+      }
+      return false
     }
   }
 }
