@@ -7,7 +7,6 @@
       fixed
       app
     >
-      <div>{{ userNow }}</div>
       <v-list>
         <!-- <v-list-item
           v-for="(item, i) in items"
@@ -55,7 +54,7 @@
             <v-list-item-title>Вход</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item v-if="userNow !== null" to="/">
+        <v-list-item v-if="userNow !== null" to="/" @click="logout">
           <v-list-item-action>
             <v-icon>mdi-account-tie</v-icon>
           </v-list-item-action>
@@ -86,7 +85,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   data () {
@@ -115,11 +114,14 @@ export default {
   computed: {
     ...mapGetters({ userNow: 'auth/getUserNow' }),
     adminCheck () {
-      if ((this.userNow) && (this.userNow.isAdmin !== true)) {
+      if ((this.userNow) && this.userNow.isAdmin === true) {
         return true
       }
       return false
     }
+  },
+  methods: {
+    ...mapMutations({ logout: 'auth/clearUserNow' })
   }
 }
 </script>

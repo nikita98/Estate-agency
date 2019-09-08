@@ -62,7 +62,7 @@ export default {
         const email = this.email
         const password = this.password
         this.userNow = this.users.find(user => user.email === email && user.password === password)
-        if (this.userNow.length) {
+        if (this.userNow) {
           this.login(this.userNow)
           this.$router.push('/')
         } else {
