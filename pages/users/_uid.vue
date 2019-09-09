@@ -35,7 +35,10 @@
         </div>
         <div>Продано объектов : {{ user.soldObject }}</div>
         <div>Был онлайн: {{ timeFromNow(user.lastlogin) }}</div>
-        <v-btn v-if="user === userNow">
+        <v-btn
+          v-if="user == userNow"
+          to="/objects/add-object"
+        >
           Добавить объект
         </v-btn>
       </v-card-text>

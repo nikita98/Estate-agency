@@ -30,12 +30,28 @@
             <v-list-item-title>Стартовая страница</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item v-if="userNow !== null" to="/" @click="toUserNow">
+          <v-list-item-action>
+            <v-icon>mdi-account-tie</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Моя страница</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item v-if="adminCheck" to="/users/users">
           <v-list-item-action>
             <v-icon>mdi-account-tie</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Работники</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-if="adminCheck" to="/objects/all">
+          <v-list-item-action>
+            <v-icon>mdi-account-tie</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Объекты</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-if="userNow === null" to="/SinginUp">
@@ -54,7 +70,7 @@
             <v-list-item-title>Вход</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item v-if="userNow !== null" to="/" @click="logout">
+        <v-list-item v-if="userNow !== null" @click="logout">
           <v-list-item-action>
             <v-icon>mdi-account-tie</v-icon>
           </v-list-item-action>
@@ -121,7 +137,10 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({ logout: 'auth/clearUserNow' })
+    ...mapMutations({ logout: 'auth/clearUserNow' }),
+    toUserNow () {
+      this.$router.push('/users/' + this.userNow.uid)
+    }
   }
 }
 </script>

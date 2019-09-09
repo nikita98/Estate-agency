@@ -10,7 +10,7 @@ export const state = () => ({
       },
       'createdAt': 1567417235910,
       'sold': true,
-      'type': 'garage',
+      'type': 'Гараж',
       'photos': [
         { 'id': '1',
           'title': 'Ворота',
@@ -25,9 +25,33 @@ export const state = () => ({
           'image': 'https://via.placeholder.com/150/24f355',
           'description': 'Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Подзаголовок, которое.' }
       ],
-      'аrea': 21.35,
+      'area': 21.35,
       'basement': true,
       'heating': true
+    },
+    {
+      'id': '08cdc100',
+      'ownerId': '0',
+      'holder': {
+        'name': 'Михалков Александр Васильевич',
+        'phone': '+7 (888) 888 88 88',
+        'email': 'misha@vso.x'
+      },
+      'createdAt': 1568059501234,
+      'sold': false,
+      'type': 'Аппартаменты',
+      'area': '300',
+      'kitchenArea': '20',
+      'studio': false,
+      'floor': '2',
+      'allFloor': '6',
+      'parking': 'Нет',
+      'buildYead': 2000,
+      'elevator': true,
+      'walls': 'Кирпичные',
+      'facing': 'Евроремонт',
+      'bathroom': true,
+      'loggia': 1
     },
     {
       'id': 'dhgi3r5asfs',
@@ -39,14 +63,14 @@ export const state = () => ({
       },
       'createdAt': 1567417235910,
       'sold': true,
-      'type': 'garage',
+      'type': 'Гараж',
       'photos': [
         { 'id': '1',
           'title': 'Ворота',
           'image': 'https://via.placeholder.com/150/24f355',
           'description': 'Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Подзаголовок, которое.' }
       ],
-      'аrea': 21.35,
+      'area': 21.35,
       'basement': true,
       'heating': true
     },
@@ -60,14 +84,14 @@ export const state = () => ({
       },
       'createdAt': 1567417235910,
       'sold': true,
-      'type': 'garage',
+      'type': 'Гараж',
       'photos': [
         { 'id': '1',
           'title': 'Ворота',
           'image': 'https://via.placeholder.com/150/24f355',
           'description': 'Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Подзаголовок, которое.' }
       ],
-      'аrea': 21.35,
+      'area': 21.35,
       'basement': true,
       'heating': true
     },
@@ -81,14 +105,14 @@ export const state = () => ({
       },
       'createdAt': 1567417235910,
       'sold': true,
-      'type': 'garage',
+      'type': 'Гараж',
       'photos': [
         { 'id': '1',
           'title': 'Ворота',
           'image': 'https://via.placeholder.com/150/24f355',
           'description': 'Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Подзаголовок, которое.' }
       ],
-      'аrea': 21.35,
+      'area': 21.35,
       'basement': true,
       'heating': true
     },
@@ -101,8 +125,8 @@ export const state = () => ({
         'email': 'vasya-pup@uk.com'
       },
       'createdAt': 1567417235910,
-      'sold': true,
-      'type': 'garage',
+      'sold': false,
+      'type': 'Гараж',
       'photos': [
         { 'id': '1',
           'title': 'Ворота',
@@ -121,7 +145,7 @@ export const state = () => ({
           'image': 'https://via.placeholder.com/150/24f355',
           'description': 'Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Подзаголовок, которое.' }
       ],
-      'аrea': 21.35,
+      'area': 21.35,
       'basement': true,
       'heating': true
     },
@@ -135,14 +159,14 @@ export const state = () => ({
       },
       'createdAt': 1567417235910,
       'sold': true,
-      'type': 'garage',
+      'type': 'Гараж',
       'photos': [
         { 'id': '1',
           'title': 'Ворота',
           'image': 'https://via.placeholder.com/150/24f355',
           'description': 'Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Подзаголовок, которое.' }
       ],
-      'аrea': 21.35,
+      'area': 21.35,
       'basement': true,
       'heating': true
     }
